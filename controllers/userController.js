@@ -66,3 +66,8 @@ export const logout = async(req,res)=>{
     })
     res.status(200).json({msg: 'user logged out'})
 }
+
+export const getCurrentUser = async (req, res) => {
+    const user = await User.findOne({ _id: req.user.userId });
+    res.status(200).json({ user});
+  };
